@@ -27,7 +27,7 @@ const PORT = process.env.PORT || 3000 //allow environment variable to possible s
 /*YOU NEED AN APP ID KEY TO RUN THIS CODE
   GET ONE BY SIGNING UP AT openweathermap.org
 */
-const API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' //<== YOUR API KEY HERE
+const API_KEY = 'c8ad2a0a666296c88480cc8bcc50ad03' //<== YOUR API KEY HERE
 
 const app = express()
 
