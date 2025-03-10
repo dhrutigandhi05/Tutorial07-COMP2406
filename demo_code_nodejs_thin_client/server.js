@@ -25,7 +25,7 @@ const qstring = require('querystring')
 
 const PORT = process.env.PORT || 3000
 //Please register for your own key replace this with your own.
-const API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' //<== INSERT YOUR KEY HERE
+const API_KEY = 'c8ad2a0a666296c88480cc8bcc50ad03' //<== INSERT YOUR KEY HERE
 
 function sendResponse(weatherData, res) {
   var page = '<html><head><title>API Example</title></head>' +

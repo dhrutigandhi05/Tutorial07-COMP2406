@@ -10,6 +10,7 @@ LAUNCH INSTRUCTIONS:
     node server.js
 
 TESTING INSTRUCTIONS:
-
+    http://localhost:3000
+    http://localhost:3000/weather?city=Ottawa
 
 YOUTUBE DEMONSTRATION:
