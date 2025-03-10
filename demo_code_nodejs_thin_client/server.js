@@ -69,9 +69,10 @@ function getWeather(city, res) {
 http.createServer(function(req, res) {
   let requestURL = req.url
   let query = url.parse(requestURL).query //GET method query parameters if any
+  let queryParams = qstring.parse(query)
   let method = req.method
   console.log(`${method}: ${requestURL}`)
-  console.log(`query: ${query}`) //GET method query parameters if any
+  console.log(`queryParams: ${JSON.stringify(queryParams)}`) //GET method query parameters if any
 
   if (req.method == "POST") {
     let reqData = ''
@@ -84,6 +85,8 @@ http.createServer(function(req, res) {
       console.log(queryParams)
       getWeather(queryParams.city, res)
     })
+  }  else if (req.method === "GET" && queryParams.city) {
+    getWeather(queryParams.city, res)
   } else {
     sendResponse(null, res)
   }
@@ -93,4 +96,5 @@ http.createServer(function(req, res) {
   console.log(`Server is listening on PORT ${PORT} CNTL-C to quit`)
   console.log(`To Test:`)
   console.log(`http://localhost:3000/`)
+  console.log(`http://localhost:3000/?city=Ottawa`)
 })
