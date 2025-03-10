@@ -27,7 +27,7 @@ const PORT = process.env.PORT || 3000
 //Please register for your own key replace this with your own.
 const API_KEY = 'c8ad2a0a666296c88480cc8bcc50ad03' //<== INSERT YOUR KEY HERE
 
-function sendResponse(weatherData, res) {
+function sendResponse(weatherData, res, city = '') {
   var page = '<html><head><title>API Example</title></head>' +
     '<body>' +
     '<form method="post">' +
@@ -35,7 +35,7 @@ function sendResponse(weatherData, res) {
     '<input type="submit" value="Get Weather">' +
     '</form>'
   if (weatherData) {
-    page += '<h1>Weather Info</h1><p>' + weatherData + '</p>'
+    page += `<h1>Weather Info for ${city}</h1><p>` + weatherData + '</p>'
   }
   page += '</body></html>'
   res.end(page)
@@ -60,7 +60,7 @@ function getWeather(city, res) {
       weatherData += chunk
     })
     apiResponse.on('end', function() {
-      sendResponse(weatherData, res)
+      sendResponse(weatherData, res, city)
     })
   }).end() //important to end the request
            //to actually send the message
