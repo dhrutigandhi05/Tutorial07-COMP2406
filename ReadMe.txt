@@ -10,7 +10,12 @@ LAUNCH INSTRUCTIONS:
     node server.js
 
 TESTING INSTRUCTIONS:
-    http://localhost:3000
-    http://localhost:3000/weather?city=Ottawa
+    problem 3:
+        http://localhost:3000
+        http://localhost:3000/weather?city=Ottawa
 
+    problem 4:
+        http://localhost:3000/songs?title=Body+And+Soul
+        http://localhost:3000
+        
 YOUTUBE DEMONSTRATION:
