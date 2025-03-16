@@ -1,33 +1,28 @@
-function getWeather() {
+function getSong() {
 
-    let cityName = document.getElementById('city').value
-    if(cityName === '') {
-        return alert('Please enter a city')
-    }
+  let songName = document.getElementById('song').value.trim()
+  if(songName === '') {
+      return alert('Please enter a song')
+  }
 
-    let cityDiv = document.getElementById('cityweather')
-    cityDiv.innerHTML = ''
+  let songDiv = document.getElementById('songValue')
+  songDiv.innerHTML = ''
 
-    let xhr = new XMLHttpRequest()
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            let response = JSON.parse(xhr.responseText)
- 			cityDiv.innerHTML = cityDiv.innerHTML + `
-			<h1>Weather for ${cityName} </h1>
-			<ul>
-			<li>Location: LON:${response.coord.lon}, LAT:${response.coord.lat}</li>
-			<li>Main: ${response.weather[0].main}</li>
-			<li>Desc: ${response.weather[0].description}</li>
-			</ul>
+  let xhr = new XMLHttpRequest()
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      let response = JSON.parse(xhr.responseText)
+      console.log(response)
+      songDiv.innerHTML = songDiv.innerHTML + `
+      <h1>Song Matching ${songName} </h1>
       <p>${xhr.responseText}</p>
-			`
-        }
+      `
     }
-    xhr.open('GET', `/weather?city=${cityName}`, true)
-    xhr.send()
+  }
+  xhr.open('GET', `/songs?title=Body+And+Soul`, true)
+  // xhr.open('GET', `/songs?title=${songName}`, true)
+  xhr.send()
 }
-
-
 
 const ENTER=13
 
@@ -40,7 +35,7 @@ event.preventDefault()
 
 
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('submit_button').addEventListener('click', getWeather)
+  document.getElementById('submit_button').addEventListener('click', getSong)
 
   //add key handler for the document as a whole, not separate elements.
   document.addEventListener('keyup', handleKeyUp)
